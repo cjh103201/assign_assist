@@ -2,6 +2,9 @@ package com.myproject.assist;
 
 import java.util.Locale;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
@@ -18,9 +21,13 @@ public class HomeController {
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 	
 	@RequestMapping(value = {"/", "home.action" }, method = RequestMethod.GET)
-	public String home(Locale locale, Model model) {
+	public String home(HttpServletRequest req, HttpSession session, Locale locale, Model model) {
 		
-		return "home";
+		if(req.getSession().getAttribute("loginuser") == null) {
+			return "index";
+		} else {
+			return "home";
+		}
 	}
 	
 }

@@ -5,7 +5,7 @@
 <script type="text/javascript">
 	$(document).ready(function(){
 		$("#logout").click(function() {
-			location.href="/brats/account/logout.action";
+			location.href="/assist/account/logout.action";
 		});
 	})
 </script>
@@ -20,7 +20,7 @@
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
 			</button>
-			<a class="navbar-brand" href="/brats/home.action"><img style="width: 150; height: 50;" src="/assist/resources/assets/img/log.jpg" alt=""></a>
+			<a class="navbar-brand" href="/assist/home.action"><img style="width: 150; height: 50;" src="/assist/resources/assets/img/log.jpg" alt=""></a>
 		</div>
 		
 		<!-- Collect the nav links, forms, and other content for toggling -->
@@ -31,34 +31,34 @@
 			<c:choose>
 				<c:when test="${ sessionScope.userType == 1}" >
 		    			<ul class="main-nav nav navbar-nav">
-						<li class="wow fadeInDown" data-wow-delay="0.5s"><a href="/brats/home.action">BRAT 검사 보조 도구</a></li>
+						<li class="wow fadeInDown" data-wow-delay="0.5s"><a href="/assist/home.action">BRAT 검사 보조 도구</a></li>
 		           	</ul>
 					<ul class="main-nav nav navbar-nav navbar-right">
-						<li class="wow fadeInDown" data-wow-delay="0.5s"><a href="/brats/home.action">HOME</a></li>
+						<li class="wow fadeInDown" data-wow-delay="0.5s"><a href="/assist/home.action">HOME</a></li>
 						<li class="dropdown ymm-sw " data-wow-delay="0.1s">
 							<a href="#" class="dropdown-toggle active" data-toggle="dropdown" data-hover="dropdown" data-delay="200">오류 검출<b class="caret"></b></a>
 							<ul class="dropdown-menu navbar-nav">
 								<li>
-									<a href="/brats/error/mentionType.action">MentionType 검사</a>
+									<a href="/assist/error/mentionType.action">MentionType 검사</a>
 								</li>
 								<li>
-									<a href="/brats/error/constructure.action">Event 구조 검사</a>
+									<a href="/assist/error/constructure.action">Event 구조 검사</a>
 								</li>
 								<li>
-									<a href="/brats/error/goFixDraggingError.action">Dragging 오류 수정</a>
+									<a href="/assist/error/goFixDraggingError.action">Dragging 오류 수정</a>
 								</li>
 							</ul>
 						</li>
-						<li class="wow fadeInDown" data-wow-delay="0.5s"><a href="/brats/concordance/concordance.action">검색</a></li>
+						<li class="wow fadeInDown" data-wow-delay="0.5s"><a href="/assist/concordance/concordance.action">검색</a></li>
 		           	</ul>
 				</c:when>
 		    		<c:otherwise>
 		    			<ul class="main-nav nav navbar-nav">
-						<li class="wow fadeInDown" data-wow-delay="0.5s"><a href="/brats/home.action">BRAT 검사 보조 도구</a></li>
+						<li class="wow fadeInDown" data-wow-delay="0.5s"><a href="/assist/home.action">BRAT 검사 보조 도구</a></li>
 		           	</ul>
 		    			<ul class="main-nav nav navbar-nav navbar-right">
-						<li class="wow fadeInDown" data-wow-delay="0.5s"><a href="/brats/home.action">HOME</a></li>
-						<li class="wow fadeInDown" data-wow-delay="0.5s"><a href="/brats/concordance/concordance.action">검색</a></li>
+						<li class="wow fadeInDown" data-wow-delay="0.5s"><a href="/assist/home.action">HOME</a></li>
+						<li class="wow fadeInDown" data-wow-delay="0.5s"><a href="/assist/concordance/concordance.action">검색</a></li>
 		           	</ul>
 		    		</c:otherwise>
 			</c:choose>

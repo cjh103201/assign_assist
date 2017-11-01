@@ -1,5 +1,9 @@
 package com.myproject.assist.controller;
 
+import java.io.PrintWriter;
+
+import javax.servlet.http.HttpServletResponse;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
@@ -19,9 +23,23 @@ public class MemberController {
 
 	//회원가입
 	@RequestMapping(value="register.action", method=RequestMethod.POST)
-	public String register(Member member) {
-		memberService.registerMember(member);
-		return "redirect:/home.action";
+	public String register(Member member, HttpServletResponse resp) {
+		System.out.println(member.getName());
+		Member members = memberService.getMemberById(member.getId());
+		if(members != null) {
+			try {
+				resp.setContentType("text/html; charset=utf-8");
+				PrintWriter out = resp.getWriter();
+				out.println("<script>alert('이미 존재하는 아이디입니다. 다른 아이디를 입력하세요. ');history.go(-1);</script>");
+				out.flush();
+			} catch (Exception ex) {
+				ex.printStackTrace();
+			}
+			return "index";
+		} else {
+			memberService.registerMember(member);
+			return "redirect:/home.action";
+		}
 	}
 	
 //	//아이디 중복 확인

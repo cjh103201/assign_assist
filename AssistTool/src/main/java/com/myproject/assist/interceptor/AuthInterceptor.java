@@ -6,6 +6,8 @@ import javax.servlet.http.HttpServletResponse;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.myproject.assist.model.dto.Member;
+
 public class AuthInterceptor implements HandlerInterceptor {
 
 	@Override
@@ -26,20 +28,17 @@ public class AuthInterceptor implements HandlerInterceptor {
 	public boolean preHandle(HttpServletRequest req, HttpServletResponse resp, Object arg2) throws Exception {
 		
 		boolean redirect = false;
-		Object userType = req.getSession().getAttribute("userType");
-		
 		String url = req.getRequestURI();
-		System.out.println(userType);
 		System.out.println(url);
 		
-		if(url.contains("/error") || url.contains("/concordance") ) {
-			if(userType == null) {
+		if(url.contains("home") || url.contains("account")) {
+			if(req.getSession().getAttribute("loginuser") == null) {
 				redirect = true;
 			}
 		}
 
 		if(redirect) {
-			resp.sendRedirect("/brats/");
+			resp.sendRedirect("/assist/");
 		}
 		
 		return !redirect; //false가 반환되면 요청 처리 중
