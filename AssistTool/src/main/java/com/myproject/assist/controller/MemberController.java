@@ -24,7 +24,6 @@ public class MemberController {
 	//회원가입
 	@RequestMapping(value="register.action", method=RequestMethod.POST)
 	public String register(Member member, HttpServletResponse resp) {
-		System.out.println(member.getName());
 		Member members = memberService.getMemberById(member.getId());
 		if(members != null) {
 			try {

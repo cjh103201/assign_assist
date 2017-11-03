@@ -32,7 +32,7 @@ public class MemberServiceImpl implements MemberService {
 
 	@Override
 	public Member getMemberByIdAndPassword(String id, String password) {
-		return dao.selectMemberByIdAndPasswd(id, password);
+		return dao.selectMemberByIdAndPasswd(id, Util.getHashedString(password, "SHA-256"));
 	}
 
 	@Override

@@ -86,11 +86,11 @@
                         <form action="/assist/account/login.action" method="post">
                             <div class="form-group">
                                 <label for="id">ID</label>
-                                <input type="text" class="form-control" id="loginid" name="loginid">
+                                <input type="text" class="form-control"  name="id">
                             </div>
                             <div class="form-group">
                                 <label for="password">Password</label>
-                                <input type="password" class="form-control" id="loginpassword" name="loginpassword">
+                                <input type="password" class="form-control" name="password">
                             </div>
                             <div class="text-center">
                                 <button type="submit" class="btn btn-default"> Log in</button>

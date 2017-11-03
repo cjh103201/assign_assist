@@ -11,6 +11,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.myproject.assist.common.Util;
 import com.myproject.assist.model.dto.Member;
 import com.myproject.assist.model.service.MemberService;
 
@@ -24,9 +25,8 @@ public class AccountController {
 
 	//로그인
 	@RequestMapping(value="login.action", method=RequestMethod.POST)
-	public String login(String loginid, String loginpassword, HttpSession session, HttpServletResponse resp) {
-		System.out.println(loginid);
-		Member member = memberService.getMemberByIdAndPassword(loginid, loginpassword);
+	public String login(Member loginMember, HttpSession session, HttpServletResponse resp) {
+		Member member = memberService.getMemberByIdAndPassword(loginMember.getId(), loginMember.getPassword());
 		
 		if(member == null) {
 			try {

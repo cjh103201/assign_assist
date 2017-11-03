@@ -29,7 +29,7 @@
 				<button id="logout" class="navbar-btn nav-button wow bounceInRight login" data-wow-delay="0.45s">Logout</button>
 			</div>
 			<c:choose>
-				<c:when test="${ sessionScope.userType == 1}" >
+				<c:when test="${ loginuser.userType == 2}" > 
 		    			<ul class="main-nav nav navbar-nav">
 						<li class="wow fadeInDown" data-wow-delay="0.5s"><a href="/assist/home.action">BRAT 검사 보조 도구</a></li>
 		           	</ul>
