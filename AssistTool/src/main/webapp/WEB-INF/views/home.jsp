@@ -38,7 +38,7 @@
                 <div class="row">
                     <div class="col-md-10 col-md-offset-1 col-sm-12 text-center page-title">
                         <!-- /.feature title -->
-                        <h2>작업 현황 ( 5M4W ~ 9M1W )</h2> 
+                        <h2>작업 현황</h2> 
                     </div>
                 </div>
                 <div class="row">
@@ -50,7 +50,7 @@
                                         <span class="pe-7s-news-paper"></span>
                                     </div>
                                     <div class="chart" data-percent="5000">
-                                        <h2 class="percent" id="docNo">${ totalDocNo }</h2>
+                                        <h2 class="percent" id="docNo">${ totalDocNum }</h2>
                                         <h5>총 작업 문서</h5>
                                     </div>
                                 </div>
@@ -61,8 +61,8 @@
                                         <span class="pe-7s-junk"></span>
                                     </div>
                                     <div class="chart" data-percent="5000">
-                                        <h2 class="percent"  id="noDocNo">${ notDocNo }</h2>
-                                        <h5>작업 제외 문서</h5>
+                                        <h2 class="percent"  id="noDocNo">${ totalNoDocNum } ( ${ totalEventDocNo } )</h2>
+                                        <h5>작업 제외 문서 (작업 대상)</h5>
                                     </div>
                                 </div> 
                             </div>
@@ -73,8 +73,8 @@
                                         <span class="pe-7s-light"></span>
                                     </div>
                                     <div class="chart" data-percent="12000">
-                                        <h2 class="percent" id="eventNo">${ eventNo } ( ${ distinctEventNo } ) </h2>
-                                        <h5>Evnet (중복 제외)</h5>
+                                        <h2 class="percent" id="eventNo">${ totalEventNum } ( ${ totalDistinctEventNum } ) </h2>
+                                        <h5>Event (중복 제외)</h5>
                                     </div>
                                 </div> 
                             </div> 
@@ -84,7 +84,7 @@
                                         <span class="pe-7s-link"></span>
                                     </div>
                                     <div class="chart" data-percent="120">
-                                        <h2 class="percent" id="entityNo">${ entityNo }</h2>
+                                        <h2 class="percent" id="entityNo">${ totalEntityNum }</h2>
                                         <h5>Entity</h5>
                                     </div>
                                 </div> 

@@ -21,7 +21,6 @@ public class MemberController {
 	@Qualifier("memberService")
 	private MemberService memberService;
 
-	//회원가입
 	@RequestMapping(value="register.action", method=RequestMethod.POST)
 	public String register(Member member, HttpServletResponse resp) {
 		Member members = memberService.getMemberById(member.getId());

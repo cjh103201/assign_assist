@@ -52,7 +52,7 @@
 				<div class="col-md-10 col-md-offset-1 col-sm-12 text-center page-title">
                     	<div class="search-form wow pulse" data-wow-delay="0.8s">
                      	<c:choose>
-                        		<c:when test="${ sessionScope.userType == 1 }">
+                        		<c:when test="${ loginuser.userType == 2 }">
                     				<h4>MentionType 검사 대상 폴더 선택 ( IIRTECH )</h4>
                     				<br>
                     				<form class=" form-inline">
@@ -131,6 +131,6 @@
 
         <script src="../resources/assets/js/main.js"></script>
         
-        <script src="../resources/assets/brats_js/mentionType.js"></script>
+        <script src="../resources/assets/assist_js/mentionType.js"></script>
     </body>
 </html>

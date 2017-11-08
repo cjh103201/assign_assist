@@ -39,10 +39,10 @@
 							<a href="#" class="dropdown-toggle active" data-toggle="dropdown" data-hover="dropdown" data-delay="200">오류 검출<b class="caret"></b></a>
 							<ul class="dropdown-menu navbar-nav">
 								<li>
-									<a href="/assist/error/mentionType.action">MentionType 검사</a>
+									<a href="/assist/mentionType/mentionTypeCheck.action">MentionType 검사</a>
 								</li>
 								<li>
-									<a href="/assist/error/constructure.action">Event 구조 검사</a>
+									<a href="/assist/constructure/constructureCheck.action">Event 구조 검사</a>
 								</li>
 								<li>
 									<a href="/assist/error/goFixDraggingError.action">Dragging 오류 수정</a>
