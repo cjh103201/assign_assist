@@ -93,6 +93,7 @@ public class ConstructureServiceImpl implements ConstructureService {
 								cont.add(fileName.substring(0, fileName.length() - 4));
 								cont.add(FileUtil.getLine(path, fileName, content.get(i)));
 								cont.add(contentLine[1]);
+								cont.add(content.get(i)[1]);
 								cont.add(FileUtil.getWord(contentLine));
 								result.add(cont);
 							}
@@ -101,6 +102,7 @@ public class ConstructureServiceImpl implements ConstructureService {
 								cont.add(fileName.substring(0, fileName.length() - 4));
 								cont.add(FileUtil.getLine(path, fileName, content.get(i)));
 								cont.add(contentLine[1]);
+								cont.add(content.get(i)[1]);
 								cont.add(FileUtil.getWord(contentLine));
 								result.add(cont);
 							}
@@ -109,6 +111,7 @@ public class ConstructureServiceImpl implements ConstructureService {
 								cont.add(fileName.substring(0, fileName.length() - 4));
 								cont.add(FileUtil.getLine(path, fileName, content.get(i)));
 								cont.add(contentLine[1]);
+								cont.add(content.get(i)[1]);
 								cont.add(FileUtil.getWord(contentLine));
 								result.add(cont);
 							}
@@ -117,6 +120,7 @@ public class ConstructureServiceImpl implements ConstructureService {
 								cont.add(fileName.substring(0, fileName.length() - 4));
 								cont.add(FileUtil.getLine(path, fileName, content.get(i)));
 								cont.add(contentLine[1]);
+								cont.add(content.get(i)[1]);
 								cont.add(FileUtil.getWord(contentLine));
 								result.add(cont);
 							}
@@ -125,6 +129,7 @@ public class ConstructureServiceImpl implements ConstructureService {
 								cont.add(fileName.substring(0, fileName.length() - 4));
 								cont.add(FileUtil.getLine(path, fileName, content.get(i)));
 								cont.add(contentLine[1]);
+								cont.add(content.get(i)[1]);
 								cont.add(FileUtil.getWord(contentLine));
 								result.add(cont);
 							}
@@ -133,6 +138,7 @@ public class ConstructureServiceImpl implements ConstructureService {
 								cont.add(fileName.substring(0, fileName.length() - 4));
 								cont.add(FileUtil.getLine(path, fileName, content.get(i)));
 								cont.add(contentLine[1]);
+								cont.add(content.get(i)[1]);
 								cont.add(FileUtil.getWord(contentLine));
 								result.add(cont);
 							}

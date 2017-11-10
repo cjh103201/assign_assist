@@ -92,11 +92,11 @@
 								<table class="table">
 								    <thead>
 								      	<tr id="head" class="warning">
-								    	    		<th class="a">문서명</th>
+							   	    		<th class="a">문서명</th>
 								       		<th class="a">Line</th>
-								        		<th class="a">속성</th>
-								        		<th class="a">단어</th>
-								        		<th class="a">이동</th>
+							        		<th class="a">속성</th>
+							        		<th class="a">단어</th>
+							        		<th class="a">이동</th>
 								      	</tr>
 								    </thead>
 								    <tbody id="contents">
