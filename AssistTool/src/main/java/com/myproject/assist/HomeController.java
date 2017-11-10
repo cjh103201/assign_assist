@@ -34,12 +34,31 @@ public class HomeController {
 		if(req.getSession().getAttribute("loginuser") == null) {
 			return "index";
 		} else {
+			//all
 			session.setAttribute("totalDocNum", countingService.getTotalDocNum());
 			session.setAttribute("totalNoDocNum", countingService.getTotalNoDocNum());
 			session.setAttribute("totalEventNum", countingService.getTotalEventNum());
 			session.setAttribute("totalDistinctEventNum", countingService.getTotalDistinctEventNum());
 			session.setAttribute("totalEntityNum", countingService.getTotalEntityNum());
 			session.setAttribute("totalEventDocNo", countingService.getTotalDocNum() - countingService.getTotalNoDocNum());
+			
+			//news
+			session.setAttribute("newsDocNum", countingService.getNewsDocNum());
+			session.setAttribute("newsNoDocNum", countingService.getNewsNoDocNum());
+			session.setAttribute("newsEventNum", countingService.getNewsEventNum());
+			session.setAttribute("newsDistinctEventNum", countingService.getNewsDistinctEventNum());
+			session.setAttribute("newsEntityNum", countingService.getNewsEntityNum());
+			session.setAttribute("newsEventDocNo", countingService.getNewsDocNum() - countingService.getNewsNoDocNum());
+			
+			//promed
+			session.setAttribute("promedDocNum", countingService.getPromedDocNum());
+			session.setAttribute("promedNoDocNum", countingService.getPromedNoDocNum());
+			session.setAttribute("promedEventNum", countingService.getPromedEventNum());
+			session.setAttribute("promedDistinctEventNum", countingService.getPromedDistinctEventNum());
+			session.setAttribute("promedEntityNum", countingService.getPromedEntityNum());
+			session.setAttribute("promedEventDocNo", countingService.getPromedDocNum() - countingService.getPromedNoDocNum());
+
+			
 			return "home";
 		}
 	}

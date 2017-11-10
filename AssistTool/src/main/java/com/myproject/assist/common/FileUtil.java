@@ -102,7 +102,7 @@ public class FileUtil {
 	 * @Method   : splitFileDataExceptEvent
 	 * @작성일     : 2017. 11. 8
 	 * @작성자     : jeehyun
-	 * @explain : 한줄씩 저장되있는 리스트를 받아서 스페이스, 탭, 콜론으로 split
+	 * @explain : 한줄씩 저장되있는 리스트를 받아서 스페이스, 탭으로 split
 	 * @param :ArrayList<String> contentLines
 	 * @return :ArrayList<String[]> content
 	 */
@@ -165,13 +165,22 @@ public class FileUtil {
 	}
 	
 	/**
-	 * @Method   : 
+	 * @Method   : getContentLineByEntityNo
 	 * @작성일     : 2017. 11. 8
 	 * @작성자     : jeehyun
-	 * @explain : 
-	 * @param :
-	 * @return :
+	 * @explain : entityNo를 이용해 event에 속해있는 엔터티들의 구조를 가져온다.
+	 * @param :String entityNo, ArrayList<String[]> content
+	 * @return :String[] result
 	 */
+	public static String[] getContentLineByEntityNo(String entityNo, ArrayList<String[]> content) {
+		String[] result = new String[] {};
+		for(int i = 0; i < content.size(); i++) {
+			if(content.get(i)[0].equals(entityNo)) {
+				result = content.get(i);
+			}
+		}
+		return result;
+	}
 	
 	/**
 	 * @Method   : 

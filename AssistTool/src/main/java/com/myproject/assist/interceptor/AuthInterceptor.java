@@ -31,7 +31,7 @@ public class AuthInterceptor implements HandlerInterceptor {
 		String url = req.getRequestURI();
 		System.out.println(url);
 		
-		if(url.contains("home") || url.contains("mentionType")) {
+		if(url.contains("home") || url.contains("mentionType") || url.contains("constructure")) {
 			if(req.getSession().getAttribute("loginuser") == null) {
 				redirect = true;
 			}

@@ -51,35 +51,29 @@
 			<div class="row">
 				<div class="col-md-10 col-md-offset-1 col-sm-12 text-center page-title">
                     	<div class="search-form wow pulse" data-wow-delay="0.8s">
-                     	<c:choose>
-                        		<c:when test="${ sessionScope.userType == 1 }">
-                    				<h4>Event 구조 검사 대상 폴더 선택 ( IIRTECH )</h4>
-                    				<br>
-                    				<form class=" form-inline">
-		                     		<div class="form-group"  style="width:150;" >
-		                     			<select id="type" class="selectpicker" data-live-search="true" data-live-search-style="begins"  title="검사 유헝" >
-		                     				<option value="lack">Entity 부족</option>
-		                     				<option value="mismatch">Entity 속성 불일치</option>
-		                     			</select>
-		                     		</div>
-		                     		<div class="form-group">
-		                     			<select id="weeks" class="selectpicker" data-live-search="true" data-live-search-style="begins"  title="작업 주차" >
-		                     				<c:forEach var="folder" items="${ folderList }">
-		                     					<option value="${ folder }"> ${ folder } </option>
-		                     				</c:forEach>
-		                     			</select>
-		                     		</div>
-			                        	<div class="form-group" id ="job">                                   
-			                        		<select id="step" class="selectpicker" title="작업 단계 (Defaut : 3rd)" data-live-search="true" data-live-search-style="begins" >
-			                             </select>
-			                         </div>
-			                         <button id="constructureCheck" class="btn search-btn" type="button"><i class="fa fa-search"></i></button>
-			                		</form>
-			                		<br>
-               				</c:when>
-               				<c:otherwise>
-                				</c:otherwise>
-                        	</c:choose>
+            				<h4>Event 구조 검사 대상 폴더 선택</h4>
+            				<br>
+            				<form class=" form-inline">
+	                    		<div class="form-group"  style="width:150;" >
+	                    			<select id="type" class="selectpicker" data-live-search="true" data-live-search-style="begins"  title="검사 유헝" >
+	                    				<option value="lack">Entity 부족</option>
+	                    				<option value="mismatch">Entity 속성 불일치</option>
+	                    			</select>
+	                    		</div>
+	                    		<div class="form-group">
+	                    			<select id="weeks" class="selectpicker" data-live-search="true" data-live-search-style="begins"  title="작업 주차" >
+	                    				<c:forEach var="folder" items="${ folderList }">
+	                    					<option value="${ folder }"> ${ folder } </option>
+	                    				</c:forEach>
+	                    			</select>
+	                    		</div>
+	                        	<div class="form-group" id ="job">                                   
+	                        		<select id="step" class="selectpicker" title="작업 단계 (Defaut : 3rd)" data-live-search="true" data-live-search-style="begins" >
+	                             </select>
+	                         </div>
+	                         <button id="constructureCheck" class="btn search-btn" type="button"><i class="fa fa-search"></i></button>
+	                		</form>
+	                		<br>
                 		</div>
              	</div>
         		</div>
@@ -131,6 +125,6 @@
 
         <script src="../resources/assets/js/main.js"></script>
         
-        <script src="../resources/assets/brats_js/constructure.js"></script>
+        <script src="../resources/assets/assist_js/constructure.js"></script>
     </body>
 </html>

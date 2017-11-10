@@ -16,26 +16,26 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.myproject.assist.common.FilePath;
 import com.myproject.assist.common.FileUtil;
-import com.myproject.assist.model.service.MentionTypeService;
+import com.myproject.assist.model.service.ConstructureService;
 
 @Controller
 @RequestMapping(value = "/constructure")
 public class ConstructureController {
 	
 	@Autowired
-	@Qualifier("mentionTypeService")
-	private MentionTypeService mentionTypeService;
-
-	@RequestMapping(value="mentionTypeCheck.action", method=RequestMethod.GET)
-	public String mentionTypeCheckPage(HttpSession session) {
+	@Qualifier("constructureService")
+	private ConstructureService constructurService;
+	
+	@RequestMapping(value="constructureCheck.action", method=RequestMethod.GET)
+	public String ConstructureCheckPage(HttpSession session) {
 		ArrayList<String> folderList = FileUtil.getFolderList(FilePath.path.folderPath);
 		session.setAttribute("folderList", folderList);
-		return "error/mentionType";
+		return "error/constructure";
 	}
 	
-	@RequestMapping(value="folderList.action", method = RequestMethod.GET, produces = "applications/json;charset=utf-8")
+	@RequestMapping(value="folderList.action", method=RequestMethod.GET, produces="applications/json;charset=utf-8")
 	@ResponseBody
-	public String getNextFolderList(HttpServletResponse resp, String folderName) {
+	public String GetNextFolderList(String folderName, HttpServletResponse resp) {
 		ArrayList<String> folderList = FileUtil.getFolderList(FilePath.path.folderPath + "/" + folderName);
 		
 		if(folderList.size() == 0) {
@@ -45,17 +45,15 @@ public class ConstructureController {
 		Gson gson = new GsonBuilder().setDateFormat("yyyy-MM-dd").create();
 		String json = gson.toJson(folderList);
 		
-		resp.setContentType("application/json;charset=utf-8");
+		resp.setContentType("application/json;charset=utf-8"); 
 		
 		return json;
 	}
 	
-	@RequestMapping(value="missingMentionTypeCheck.action", method = RequestMethod.GET, produces = "applications/json;charset=utf-8")
+	@RequestMapping(value="CheckConstructureLack.action", method=RequestMethod.GET, produces="application/json;charset=utf-8")
 	@ResponseBody
-	public String getResultMentionTypeCheck(HttpServletResponse resp, String folderName, String nextPath) {
-		
-		ArrayList<ArrayList<String>> result = mentionTypeService.missingMentionTypeCheck(folderName, nextPath);
-		
+	public String CheckConstructureOfLack(HttpServletResponse resp, String folderName, String nextPath) {
+		ArrayList<ArrayList<String>> result = constructurService.CheckConstructureOfLack(folderName, nextPath);
 		Gson gson = new GsonBuilder().setDateFormat("yyyy-MM-dd").create();
 		String json =gson.toJson(result);
 		
@@ -63,13 +61,11 @@ public class ConstructureController {
 		
 		return json;
 	}
-	
-	@RequestMapping(value="addedMentionTypeCheck.action", method = RequestMethod.GET, produces = "applications/json;charset=utf-8")
+
+	@RequestMapping(value="CheckConstructureMismatch.action", method=RequestMethod.GET, produces="application/json;charset=utf-8")
 	@ResponseBody
-	public String getResultMentionTypeCheck2(HttpServletResponse resp, String folderName, String nextPath) {
-		
-		ArrayList<ArrayList<String>> result = mentionTypeService.addedMentionTypeCheck(folderName, nextPath);
-		
+	public String CheckConstructureOfMismatch(HttpServletResponse resp, String folderName, String nextPath) {
+		ArrayList<ArrayList<String>> result = constructurService.CheckConstructureOfMismatch(folderName, nextPath);
 		Gson gson = new GsonBuilder().setDateFormat("yyyy-MM-dd").create();
 		String json =gson.toJson(result);
 		

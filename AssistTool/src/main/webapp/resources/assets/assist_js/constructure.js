@@ -52,8 +52,8 @@ $('#constructureCheck').click(function() {
 	
 	if(type == "lack") {
 		$.ajax({
-			url : "lackConstructureCheck.action",
-			data : { folderName : $("#weeks option:selected").val(), nextPath : $("#step option:selected").val()},
+			url : "CheckConstructureLack.action",
+			data : { folderName : $("#weeks option:selected").val(), nextPath : next},
 			method : "get",
 			dataType : "json",
 			success : function(data, status, xhr) {
@@ -69,8 +69,8 @@ $('#constructureCheck').click(function() {
 		});
 	} else {
 		$.ajax({
-			url : "mismatchConstructureCheck.action",
-			data : { folderName : $("#weeks option:selected").val(), nextPath : $("#step option:selected").val()},
+			url : "CheckConstructureMismatch.action",
+			data : { folderName : $("#weeks option:selected").val(), nextPath : next},
 			method : "get",
 			dataType : "json",
 			success : function(data, status, xhr) {
