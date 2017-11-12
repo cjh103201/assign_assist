@@ -52,8 +52,8 @@
 				<div class="col-md-10 col-md-offset-1 col-sm-12 text-center page-title">
                     	<div class="search-form wow pulse" data-wow-delay="0.8s">
                      	<c:choose>
-                        		<c:when test="${ sessionScope.userType == 1 }">
-                    				<h4>FixDraggingError 검사 대상 폴더 선택 ( IIRTECH )</h4>
+                        		<c:when test="${ sessionScope.userType == 2 }">
+                    				<h4>FixDraggingError 검사 대상 폴더 선택</h4>
                     				<br>
                     				<form class=" form-inline">
 		                     		<div class="form-group">
@@ -75,7 +75,7 @@
                 				</c:otherwise>
                         	</c:choose>
                 		</div>
-             	</div>
+	             	</div>
         		</div>
            	<br><br><br>
 		</div>
@@ -92,11 +92,11 @@
 								<table class="table">
 								    <thead>
 								      	<tr class="warning">
-								    	    		<th>문서명</th>
+						    	    		<th>문서명</th>
 								       		<th>오류단어</th>
-								        		<th>개선결과</th>
-								        		<th>오류타입</th>
-								        		<th>이동</th>
+							        		<th>개선결과</th>
+							        		<th>오류타입</th>
+							        		<th>이동</th>
 								      	</tr>
 								    </thead>
 								    <tbody id="contents">
@@ -125,6 +125,6 @@
 
         <script src="../resources/assets/js/main.js"></script>
         
-        <script src="../resources/assets/brats_js/fixDraggingError.js"></script>
+        <script src="../resources/assets/assist_js/fixDraggingError.js"></script>
     </body>
 </html>

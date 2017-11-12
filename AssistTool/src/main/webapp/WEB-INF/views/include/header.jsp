@@ -45,7 +45,7 @@
 									<a href="/assist/constructure/constructureCheck.action">Event 구조 검사</a>
 								</li>
 								<li>
-									<a href="/assist/error/goFixDraggingError.action">Dragging 오류 수정</a>
+									<a href="/assist/fixDragging/goFixDraggingError.action">Dragging 오류 수정</a>
 								</li>
 							</ul>
 						</li>
