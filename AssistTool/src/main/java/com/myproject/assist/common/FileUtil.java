@@ -185,25 +185,6 @@ public class FileUtil {
 		return sb;
 	}
 	
-	public static String[] getTextStringArray(String path, String fileName) {
-		BufferedReader br;
-		String name = fileName.substring(0, fileName.length() - 3) + "txt";
-		File file = new File(path, name);
-		
-		String lines;
-		
-		StringBuilder sb = new StringBuilder();
-		try {
-			br = new BufferedReader(new FileReader(file));
-			while((lines = br.readLine()) != null) {
-				sb.append(lines + "\n");
-			}
-		} catch(Exception ex) {
-			ex.printStackTrace();
-		}
-		return sb;
-	}
-	
 	/**
 	 * @Method   : getLine
 	 * @작성일     : 2017. 11. 8
