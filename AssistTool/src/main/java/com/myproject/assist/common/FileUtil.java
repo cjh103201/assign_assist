@@ -159,6 +159,33 @@ public class FileUtil {
 	}
 	
 	/**
+	 * @Method   : getTextString
+	 * @작성일     : 2017. 11. 8
+	 * @작성자     : jeehyun
+	 * @explain : text 파일을 모두 읽어 stringBuilder로 만든다.
+	 * @param : String path, String fileName
+	 * @return : StringBuilder sb
+	 */
+	public static StringBuilder getTextString(String path, String fileName) {
+		BufferedReader br;
+		String name = fileName.substring(0, fileName.length() - 3) + "txt";
+		File file = new File(path, name);
+		
+		String lines;
+		
+		StringBuilder sb = new StringBuilder();
+		try {
+			br = new BufferedReader(new FileReader(file));
+			while((lines = br.readLine()) != null) {
+				sb.append(lines + "\n");
+			}
+		} catch(Exception ex) {
+			ex.printStackTrace();
+		}
+		return sb;
+	}
+	
+	/**
 	 * @Method   : getLine
 	 * @작성일     : 2017. 11. 8
 	 * @작성자     : jeehyun
@@ -189,6 +216,39 @@ public class FileUtil {
 		}
 		
 		return String.valueOf(line);
+	}
+	
+	/**
+	 * @Method   : getLineContent
+	 * @작성일     : 2017. 11. 13
+	 * @작성자     : jeehyun
+	 * @explain : 태깅된 한 줄의 데이터를 이용해, 해당 문장을 찾아온다.
+	 * @param : String path, String fileName, String[] content
+	 * @return : String line
+	 */
+	public static String getLineContent(String path, String fileName, String[] content) {
+		BufferedReader br;
+		String name = fileName.substring(0, fileName.length() - 3) + "txt";
+		File file = new File(path, name);
+		
+		String lines;
+		StringBuilder sb = new StringBuilder();
+		try {
+			br = new BufferedReader(new FileReader(file));
+			while((lines = br.readLine()) != null) {
+				sb.append(lines + "\n");
+			}
+		} catch(Exception ex) {
+			ex.printStackTrace();
+		}
+		
+		String[] end = new String[]{};
+		if(content[3].contains(";")) {
+			end = content[3].split(";");
+			return sb.substring(Integer.parseInt(content[2]), Integer.parseInt(end[0]));
+		} else {
+			return sb.substring(Integer.parseInt(content[2]), Integer.parseInt(content[3]));
+		}
 	}
 	
 	/**

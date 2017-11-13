@@ -57,7 +57,7 @@ public class ConcordanceController {
 		}
 		
 		Gson gson = new GsonBuilder().setDateFormat("yyyy-MM-dd").create();
-		String json = gson.toJson(gson);
+		String json = gson.toJson(result);
 		
 		resp.setContentType("application/json;charset=utf-8");
 		

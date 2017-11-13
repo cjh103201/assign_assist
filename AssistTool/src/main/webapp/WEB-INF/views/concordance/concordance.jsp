@@ -35,6 +35,8 @@
     <link rel="stylesheet4" href="../resources/assets/css/owl.transitions.css">
     <link rel="stylesheet" href="../resources/assets/css/style.css">
     <link rel="stylesheet" href="../resources/assets/css/responsive.css">
+    
+    
 </head>
 <body>
 	<div id="preloader">
@@ -123,7 +125,7 @@
     <div class="testimonial-area recent-property" style="background-color: #FCFCFC; padding-bottom: 15px;">
         <div class="container">
             <div class="clearfix padding-top-40">
-                <div class="col-md-10 col-md-offset-1 col-sm-12 single-property-content " style="background-color: #FCFCFC; padding-bottom: 15px;">
+                <div class="col-md-12  col-sm-12 single-property-content " style="background-color: #FCFCFC; padding-bottom: 15px;">
 					<div class="single-property-wrapper">
 					    <div class="section additional-details">
 					            <h2 class="s-property-title">검색 결과</h2>
