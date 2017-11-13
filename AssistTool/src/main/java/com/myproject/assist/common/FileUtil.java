@@ -1,8 +1,11 @@
 package com.myproject.assist.common;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.util.ArrayList;
 
 public class FileUtil {
@@ -53,6 +56,46 @@ public class FileUtil {
 		
 		return annFileList;
 	}
+	
+	/**
+	 * @Method   : getFileList
+	 * @작성일     : 2017. 11. 13
+	 * @작성자     : jeehyun
+	 * @explain : 해당 경로에서 파일 목록을 전 읽어온다.
+	 * @param : String path
+	 * @return : File[] fileList
+	 */
+	public static File[] getFileList(String path) {
+		
+		File dir = new File(path);
+		File[] fileList = dir.listFiles();
+		
+		return fileList;
+	}
+	
+	/**
+	 * @Method   : getTextFileList
+	 * @작성일     : 2017. 11. 13
+	 * @작성자     : jeehyun
+	 * @explain : 해당 경로에서 txt파일만 읽어온다.
+	 * @param : String path
+	 * @return : ArrayList<String> txtFileList
+	 */
+	public static ArrayList<String> getTextFileList(String path) {
+		ArrayList<String> txtFileList = new ArrayList<>();
+		
+		File dir = new File(path);
+		String[] fileList = dir.list();
+		
+		for(String fileName : fileList) {
+			if(fileName.contains(".txt")) {
+				txtFileList.add(fileName);
+			}
+		}
+		
+		return txtFileList;
+	}
+
 	
 	/**
 	 * @Method   : readFileData
@@ -183,21 +226,78 @@ public class FileUtil {
 	}
 	
 	/**
-	 * @Method   : 
-	 * @작성일     : 2017. 11. 8
+	 * @Method   : getEventWord
+	 * @작성일     : 2017. 11. 13
 	 * @작성자     : jeehyun
-	 * @explain : 
-	 * @param :
-	 * @return :
+	 * @explain : event에 해당하는 엔터티 번호를 이용하여 해당하는 단어를 찾는다.
+	 * @param : String entityNo, ArrayList<String[]> content
+	 * @return : String word
 	 */
+	public static String getEventWord(String entityNo, ArrayList<String[]> content) {
+		String word = "";
+		for(int i =0; i<content.size(); i++) {
+			if(content.get(i)[0].equals(entityNo)) {
+				word = getWord(content.get(i));
+			}
+		}
+		return word;
+	}
 	
 	/**
-	 * @Method   : 
-	 * @작성일     : 2017. 11. 8
-	 * @작성자     : jeehyun
-	 * @explain : 
-	 * @param :
+	 * 
+	 * @Method   : getFileTextAtOnce
+	 * @작성일     : 2017. 9. 19. 
+	 * @작성자     : choikino
+	 * @explain :line by line 아니고 파일 내용 한번에 읽기
+	 * @param :String path, String fileName
+	 * @return :String fileText
+	 */
+	public String getFileTextAtOnce(String path, String fileName) {
+		String fileText = "";
+		try {
+			File file = new File(path, fileName);
+			FileInputStream fis = new FileInputStream(file);
+			byte[] data = new byte[(int) file.length()];
+			fis.read(data);
+			fis.close();
+			fileText = new String(data, "UTF-8");
+		} catch (Exception ex) {
+			ex.printStackTrace();
+		}
+		return fileText;
+	}
+
+	/**
+	 * 
+	 * @Method   : writeAnnFile
+	 * @작성일     : 2017. 9. 20. 
+	 * @작성자     : choikino
+	 * @explain : 파일명까지 포함된 최종경로와 쓸 데이터를 인자로 받아 새로운 ann 파일을 생성한다.
+	 * @param :String fileFullPath, String writeStr
 	 * @return :
 	 */
+	public void writeAnnFile(String path, String fileName, String writeStr) {
+        BufferedWriter bw = null;
+        try{
+        		File dir = new File(path);
+        		if(!dir.exists()) {
+        			dir.mkdirs();
+        		}
+        		String fileFullPath = path + "/" + fileName;
+            bw = new BufferedWriter(new FileWriter(fileFullPath));
+            bw.write(writeStr);
+            bw.flush();
+        }catch (Exception e) {
+            e.printStackTrace();
+        }finally {
+            if(bw != null) {
+            		try {
+            			bw.close(); 
+            		} catch (Exception e) {
+            			e.printStackTrace();
+            		}
+            }
+        }
+	}
 
 }

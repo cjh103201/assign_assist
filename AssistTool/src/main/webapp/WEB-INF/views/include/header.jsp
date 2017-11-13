@@ -49,7 +49,7 @@
 								</li>
 							</ul>
 						</li>
-						<li class="wow fadeInDown" data-wow-delay="0.5s"><a href="/assist/concordance/concordance.action">검색</a></li>
+						<li class="wow fadeInDown" data-wow-delay="0.5s"><a href="/assist/concordance/goConcordance.action">검색</a></li>
 		           	</ul>
 				</c:when>
 		    		<c:otherwise>

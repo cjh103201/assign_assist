@@ -64,7 +64,7 @@
 	    					<div id="Text" class="tab-pane fade in active">
 	    						<form action="" class=" form-inline">
                         			<div class="form-group" style="width:500;">
-                                 	<input type="text" id="textKeyword" class="form-control" placeholder="Key word ( empty = anything)">
+                                 	<input type="text" id="textKeyword" class="form-control" placeholder="Key word">
                             		</div>
                              	<button id="textSearch" class="btn search-btn" type="button"><i class="fa fa-search"></i></button>
                     			</form>
@@ -74,7 +74,7 @@
 	                             <div class="form-group">                           
 	                             <!-- text/event-type, 연결속성, entity/entity-type/mentionType/Relation-type(all/coref), type1,2(pgen,dis/pgen,dis) 에 대한 검색 -->        
 	                             	<select id="entityType" class="selectpicker"  title="Type" style="width:auto;">
-	                                 	<option value="">-Any-</option>
+	                                 	<option value="ALL">-Any-</option>
 	                                 	<option value="PER">PERSON</option>
 	                                 	<option value="ORG">ORGANIZATION</option>
 	                                 	<option value="LOC">LOCATION</option>
@@ -98,7 +98,7 @@
 	                             <div class="form-group">                           
 	                             <!-- text/event-type, 연결속성, entity/entity-type/mentionType/Relation-type(all/coref), type1,2(pgen,dis/pgen,dis) 에 대한 검색 -->        
 	                             	<select id="evnetType" class="selectpicker" data-live-search="true" data-live-search-style="begins" title="Type">
-	                                 	<option value="">-Any-</option>
+	                                 	<option value="ALL">-Any-</option>
 	                                 	<option value="Suspect">Suspect</option>
 	                                     <option value="Infect">Infect</option>
 	                                     <option value="Kill">Kill</option>
@@ -163,6 +163,6 @@
 
         <script src="../resources/assets/js/main.js"></script>
         
-        <script src="../resources/assets/brats_js/concordance.js"></script>
+        <script src="../resources/assets/assist_js/concordance.js"></script>
     </body>
 </html>

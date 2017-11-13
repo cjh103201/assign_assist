@@ -55,7 +55,7 @@
             				<br>
             				<form class=" form-inline">
 	                    		<div class="form-group"  style="width:150;" >
-	                    			<select id="type" class="selectpicker" data-live-search="true" data-live-search-style="begins"  title="검사 유헝" >
+	                    			<select id="type" class="selectpicker" data-live-search="true" data-live-search-style="begins"  title="검사 유형" >
 	                    				<option value="lack">Entity 부족</option>
 	                    				<option value="mismatch">Entity 속성 불일치</option>
 	                    			</select>

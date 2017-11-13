@@ -29,9 +29,9 @@ public class ConstructureServiceImpl implements ConstructureService {
 					ArrayList<String> cont = new ArrayList<>();
 					if(content.get(i).length < 7) {
 						cont.add(fileName.substring(0, fileName.length() - 4));
-						cont.add(FileUtil.getLine(path, fileName, content.get(i)));
-						cont.add(content.get(i)[1] + "[필수 요소 부족]");
-						cont.add(FileUtil.getWord(content.get(i)));
+						cont.add(FileUtil.getLine(path, fileName, FileUtil.getContentLineByEntityNo(content.get(i)[2], content)));
+						cont.add(content.get(i)[1] + " [필수 요소 부족]");
+						cont.add(FileUtil.getEventWord(content.get(i)[2], content));
 						result.add(cont);
 					} else {
 						HashSet<String> tmp = new HashSet<>();
@@ -42,23 +42,23 @@ public class ConstructureServiceImpl implements ConstructureService {
 						if(content.get(i)[1].equals("Announce")) {
 							if(!tmp.contains("Event")) {
 								cont.add(fileName.substring(0, fileName.length() - 4));
-								cont.add(FileUtil.getLine(path, fileName, content.get(i)));
-								cont.add(content.get(i)[1] + "[Event 부족]");
-								cont.add(FileUtil.getWord(content.get(i)));
+								cont.add(FileUtil.getLine(path, fileName, FileUtil.getContentLineByEntityNo(content.get(i)[2], content)));
+								cont.add(content.get(i)[1] + " [Event 부족]");
+								cont.add(FileUtil.getEventWord(content.get(i)[2], content));
 								result.add(cont);
 							} else if( !tmp.contains("Speaker")) {
 								cont.add(fileName.substring(0, fileName.length() - 4));
-								cont.add(FileUtil.getLine(path, fileName, content.get(i)));
-								cont.add(content.get(i)[1] + "[Speaker 부족]");
-								cont.add(FileUtil.getWord(content.get(i)));
+								cont.add(FileUtil.getLine(path, fileName, FileUtil.getContentLineByEntityNo(content.get(i)[2], content)));
+								cont.add(content.get(i)[1] + " [Speaker 부족]");
+								cont.add(FileUtil.getEventWord(content.get(i)[2], content));
 								result.add(cont);
 							}
 						} else {
 							if(!tmp.contains("Disease")) {
 								cont.add(fileName.substring(0, fileName.length() - 4));
-								cont.add(FileUtil.getLine(path, fileName, content.get(i)));
-								cont.add(content.get(i)[1] + "[Disease 부족]");
-								cont.add(FileUtil.getWord(content.get(i)));
+								cont.add(FileUtil.getLine(path, fileName, FileUtil.getContentLineByEntityNo(content.get(i)[2], content)));
+								cont.add(content.get(i)[1] + " [Disease 부족]");
+								cont.add(FileUtil.getEventWord(content.get(i)[2], content));
 								result.add(cont);
 							}
 						}
@@ -91,54 +91,54 @@ public class ConstructureServiceImpl implements ConstructureService {
 						if(word.equals("Victim")) {
 							if(!contentLine[1].equals("PER") && !contentLine[1].equals("NPER")) {
 								cont.add(fileName.substring(0, fileName.length() - 4));
-								cont.add(FileUtil.getLine(path, fileName, content.get(i)));
+								cont.add(FileUtil.getLine(path, fileName, FileUtil.getContentLineByEntityNo(content.get(i)[2], content)));
 								cont.add(contentLine[1]);
-								cont.add(content.get(i)[1]);
+								cont.add(content.get(i)[j]);
 								cont.add(FileUtil.getWord(contentLine));
 								result.add(cont);
 							}
 						} else if(word.contains("Time")) {
 							if(!contentLine[1].equals("TIME")) {
 								cont.add(fileName.substring(0, fileName.length() - 4));
-								cont.add(FileUtil.getLine(path, fileName, content.get(i)));
+								cont.add(FileUtil.getLine(path, fileName, FileUtil.getContentLineByEntityNo(content.get(i)[2], content)));
 								cont.add(contentLine[1]);
-								cont.add(content.get(i)[1]);
+								cont.add(content.get(i)[j]);
 								cont.add(FileUtil.getWord(contentLine));
 								result.add(cont);
 							}
 						} else if (word.contains("Disease")) {
 							if(!contentLine[1].equals("DIS") && !contentLine[1].equals("PGEN")) {
 								cont.add(fileName.substring(0, fileName.length() - 4));
-								cont.add(FileUtil.getLine(path, fileName, content.get(i)));
+								cont.add(FileUtil.getLine(path, fileName, FileUtil.getContentLineByEntityNo(content.get(i)[2], content)));
 								cont.add(contentLine[1]);
-								cont.add(content.get(i)[1]);
+								cont.add(content.get(i)[j]);
 								cont.add(FileUtil.getWord(contentLine));
 								result.add(cont);
 							}
 						} else if(word.contains("Place")) {
 							if(!contentLine[1].equals("GPE") && !contentLine[1].equals("LOC") && !contentLine[1].equals("FAC")) {
 								cont.add(fileName.substring(0, fileName.length() - 4));
-								cont.add(FileUtil.getLine(path, fileName, content.get(i)));
+								cont.add(FileUtil.getLine(path, fileName, FileUtil.getContentLineByEntityNo(content.get(i)[2], content)));
 								cont.add(contentLine[1]);
-								cont.add(content.get(i)[1]);
+								cont.add(content.get(i)[j]);
 								cont.add(FileUtil.getWord(contentLine));
 								result.add(cont);
 							}
 						} else if(word.contains("Suffer")) {
 							if(!contentLine[1].equals("SYMP")) {
 								cont.add(fileName.substring(0, fileName.length() - 4));
-								cont.add(FileUtil.getLine(path, fileName, content.get(i)));
+								cont.add(FileUtil.getLine(path, fileName, FileUtil.getContentLineByEntityNo(content.get(i)[2], content)));
 								cont.add(contentLine[1]);
-								cont.add(content.get(i)[1]);
+								cont.add(content.get(i)[j]);
 								cont.add(FileUtil.getWord(contentLine));
 								result.add(cont);
 							}
 						} else if(word.contains("Speaker")) {
 							if(!contentLine[1].equals("PER") && !contentLine[1].equals("ORG")) {
 								cont.add(fileName.substring(0, fileName.length() - 4));
-								cont.add(FileUtil.getLine(path, fileName, content.get(i)));
+								cont.add(FileUtil.getLine(path, fileName, FileUtil.getContentLineByEntityNo(content.get(i)[2], content)));
 								cont.add(contentLine[1]);
-								cont.add(content.get(i)[1]);
+								cont.add(content.get(i)[j]);
 								cont.add(FileUtil.getWord(contentLine));
 								result.add(cont);
 							}

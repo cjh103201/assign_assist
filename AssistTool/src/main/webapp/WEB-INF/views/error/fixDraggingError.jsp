@@ -51,29 +51,23 @@
 			<div class="row">
 				<div class="col-md-10 col-md-offset-1 col-sm-12 text-center page-title">
                     	<div class="search-form wow pulse" data-wow-delay="0.8s">
-                     	<c:choose>
-                        		<c:when test="${ sessionScope.userType == 2 }">
-                    				<h4>FixDraggingError 검사 대상 폴더 선택</h4>
-                    				<br>
-                    				<form class=" form-inline">
-		                     		<div class="form-group">
-		                     			<select id="weeks" class="selectpicker" data-live-search="true" data-live-search-style="begins"  title="작업 주차" >
-		                     				<c:forEach var="folder" items="${ folderList }">
-		                     					<option value="${ folder }"> ${ folder } </option>
-		                     				</c:forEach>
-		                     			</select>
-		                     		</div>
-			                        	<div class="form-group" id ="job">                                   
-			                        		<select id="step" class="selectpicker" title="작업 단계 (Defaut : 3rd)" data-live-search="true" data-live-search-style="begins" >
-			                             </select>
-			                         </div>
-			                         <button id="checkFixTypeOfErrors" class="btn search-btn" type="button"><i class="fa fa-search"></i></button>
-			                		</form>
-			                		<br>
-               				</c:when>
-               				<c:otherwise>
-                				</c:otherwise>
-                        	</c:choose>
+            				<h4>FixDraggingError 검사 대상 폴더 선택</h4>
+            				<br>
+            				<form class=" form-inline">
+                     		<div class="form-group">
+                     			<select id="weeks" class="selectpicker" data-live-search="true" data-live-search-style="begins"  title="작업 주차" >
+                     				<c:forEach var="folder" items="${ folderList }">
+                     					<option value="${ folder }"> ${ folder } </option>
+                     				</c:forEach>
+                     			</select>
+                     		</div>
+	                        	<div class="form-group" id ="job">                                   
+	                        		<select id="step" class="selectpicker" title="작업 단계 (Defaut : 3rd)" data-live-search="true" data-live-search-style="begins" >
+	                             </select>
+	                         </div>
+	                         <button id="checkFixTypeOfErrors" class="btn search-btn" type="button"><i class="fa fa-search"></i></button>
+	                		</form>
+	                		<br>
                 		</div>
 	             	</div>
         		</div>
@@ -93,7 +87,7 @@
 								    <thead>
 								      	<tr class="warning">
 						    	    		<th>문서명</th>
-								       		<th>오류단어</th>
+								       	<th>오류단어</th>
 							        		<th>개선결과</th>
 							        		<th>오류타입</th>
 							        		<th>이동</th>

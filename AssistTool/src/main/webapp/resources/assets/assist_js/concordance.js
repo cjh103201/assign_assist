@@ -1,4 +1,9 @@
 $('#textSearch').click(function() {
+	var word = $('#textKeyword').val().trim();
+	if(word.length == 0) {
+		alert("검색어를 입력하세요!");
+		return;
+	}
 	$.ajax({
 		url : "text.action",
 		data : { text : $('#textKeyword').val()},
@@ -21,6 +26,11 @@ $('#textSearch').click(function() {
 });
 
 $('#entitySearch').click(function() {
+	var type = $('#entityType option:selected').val().trim();
+	if(type.length == 0) {
+		alert("유형을 선택하세요!");
+		return;
+	}
 	$.ajax({
 		url : "entity.action",
 		data : { type : $('#entityType option:selected').val(), text : $('#entityKeyword').val()},
@@ -43,6 +53,11 @@ $('#entitySearch').click(function() {
 });
 
 $('#eventSearch').click(function() {
+	var type = $('#evnetType option:selected').val().trim(); 
+	if(type.length == 0) {
+		alert("유형을 선택하세요!");
+		return;
+	}
 	$.ajax({
 		url : "event.action",
 		data : {  type : $('#evnetType option:selected').val(), text : $('#eventKeyword').val()},
@@ -65,7 +80,9 @@ $('#eventSearch').click(function() {
 });
 
 function move(x) {
-	//alert(week);
-	//alert(next);
-	window.open("http://106.255.230.162:61112/#/01 Final(5m4w-9m1w)/" +x);
+	if(x.includes("1488")) {
+		window.open("http://106.255.230.162:61112/#/01Final(NEWS)_1030/" +x);
+	} else {
+		window.open("http://106.255.230.162:61112/#/02Final(ProMED)_1030//" +x);
+	}
 };

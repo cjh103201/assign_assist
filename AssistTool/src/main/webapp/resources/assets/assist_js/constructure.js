@@ -89,7 +89,9 @@ $('#constructureCheck').click(function() {
 });
 
 function move(x) {
-	//alert(week);
-	//alert(next);
-	window.open("http://106.255.230.162:61112/#/"+ week + next +"/" +x);
+	if(x.includes("1488")) {
+		window.open("http://106.255.230.162:61112/#/01Final(NEWS)_1030/" +x);
+	} else {
+		window.open("http://106.255.230.162:61112/#/02Final(ProMED)_1030//" +x);
+	}
 };
