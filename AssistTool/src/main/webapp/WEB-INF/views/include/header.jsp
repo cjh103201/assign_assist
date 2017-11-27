@@ -50,7 +50,28 @@
 							</ul>
 						</li>
 						<li class="wow fadeInDown" data-wow-delay="0.5s"><a href="/assist/concordance/goConcordance.action">검색</a></li>
+						<li class="dropdown ymm-sw " data-wow-delay="0.1s">
+							<a href="#" class="dropdown-toggle active" data-toggle="dropdown" data-hover="dropdown" data-delay="200"> 관리 <b class="caret"></b></a>
+							<ul class="dropdown-menu navbar-nav">
+								<li>
+									<a href="/assist/management/goUserManagement.action"> 사용자 관리 </a>
+								</li>
+								<li>
+									<a href="/assist/management/goAssignWork.action"> 작업 관리 </a>
+								</li>
+							</ul>
+						</li>
 		           	</ul>
+				</c:when>
+				<c:when test="${ loginuser.userType == 1}">
+					<ul class="main-nav nav navbar-nav">
+						<li class="wow fadeInDown" data-wow-delay="0.5s"><a href="/assist/home.action">BRAT 검사 보조 도구</a></li>
+		           	</ul>
+					<ul class="main-nav nav navbar-nav navbar-right">
+						<li class="wow fadeInDown" data-wow-delay="0.5s"><a href="/assist/home.action">HOME</a></li>
+						<li class="wow fadeInDown" data-wow-delay="0.5s"><a href="/assist/concordance/goConcordance.action">검색</a></li>
+						<li class="wow fadeInDown" data-wow-delay="0.5s"><a href="/assist/management/goAssignWork.action"> 작업 관리 </a></li>
+					</ul>
 				</c:when>
 		    		<c:otherwise>
 		    			<ul class="main-nav nav navbar-nav">

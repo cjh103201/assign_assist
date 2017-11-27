@@ -13,4 +13,8 @@ public interface MemberService {
 	Member getMemberByIdAndPassword(String id, String password);
 	
 	List<Member> getMemberList();
+	
+	void deleteMember(String id);
+	
+	void changeUserType(String id, String userType);
 }

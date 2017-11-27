@@ -15,4 +15,9 @@ public interface MemberMapper {
 	Member selectMemberByIdAndPassword(HashMap<String, Object> params);
 	
 	List<Member> selectMembers();
+	
+	void deleteMember(String id);
+	
+	void updateMemberUserType(HashMap<String, String> params);
+	
 }

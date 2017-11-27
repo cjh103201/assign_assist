@@ -14,7 +14,7 @@
 	<select id="selectMemberById" resultType="Member" parameterType="String">
 		SELECT ID, NAME, MAIL, USERTYPE
 		FROM ASSIST_TOOL.MEMBER
-		WHERE ID = #{ id }
+		WHERE ID = #{ id } AND DELETED = 0
 	</select>
 	<select id="selectMemberByIdAndPassword" resultType="Member" parameterType="HashMap">
 		SELECT ID, NAME, MAIL, USERTYPE
@@ -26,4 +26,16 @@
 		FROM ASSIST_TOOL.MEMBER
 		WHERE DELETED = 0
 	</select>
+	<update id="deleteMember" parameterType="String">
+		UPDATE ASSIST_TOOL.MEMBER
+		SET
+		DELETED ='1'
+		WHERE ID = #{ id };
+	</update>
+	<update id="updateMemberUserType" parameterType="HashMap">
+		UPDATE ASSIST_TOOL.MEMBER
+		SET
+		USERTYPE = #{ userType }
+		WHERE ID = #{ id };
+	</update>
 </mapper>

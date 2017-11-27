@@ -13,7 +13,7 @@ public class ConcordanceServiceImpl implements ConcordanceService {
 	@Override
 	public ArrayList<ArrayList<String>> textConcordance(String text) {
 		System.out.println(text);
-		text = text.toLowerCase();
+		String lowerText = text.toLowerCase();
 		String path = FilePath.path.allFilePath;
 		ArrayList<ArrayList<String>> result = new ArrayList<>();
 		
@@ -23,11 +23,12 @@ public class ConcordanceServiceImpl implements ConcordanceService {
 			
 			for(int i = 0; i<lines.size(); i++) {
 				String line = lines.get(i).toLowerCase();
-				if(line.contains(text)) {
+				if(line.contains(lowerText)) {
 					ArrayList<String> cons = new ArrayList<>();
 					cons.add(fileName.substring(0, fileName.length()-4));
 					cons.add(String.valueOf((i+1)));
-					cons.add(lines.get(i));
+//					cons.add(lines.get(i));
+					cons.add(lines.get(i).replaceAll("(?i)"+text, "<span style='color:red'>" + text +"</span>"));
 					result.add(cons);
 				}
 			}

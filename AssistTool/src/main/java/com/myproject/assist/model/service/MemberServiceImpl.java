@@ -39,4 +39,14 @@ public class MemberServiceImpl implements MemberService {
 	public List<Member> getMemberList() {
 		return dao.selectMemberList();
 	}
+
+	@Override
+	public void deleteMember(String id) {
+		dao.deleteMember(id);
+	}
+
+	@Override
+	public void changeUserType(String id, String userType) {
+		dao.updateUserType(id, userType);
+	}
 }

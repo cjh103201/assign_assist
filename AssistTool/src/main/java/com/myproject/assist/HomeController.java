@@ -1,8 +1,10 @@
 package com.myproject.assist;
 
+import java.util.ArrayList;
 import java.util.Locale;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
@@ -13,7 +15,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import com.myproject.assist.model.service.CountingService;
 
 /**
@@ -42,25 +47,46 @@ public class HomeController {
 			session.setAttribute("totalEntityNum", countingService.getTotalEntityNum());
 			session.setAttribute("totalEventDocNo", countingService.getTotalDocNum() - countingService.getTotalNoDocNum());
 			
-			//news
-			session.setAttribute("newsDocNum", countingService.getNewsDocNum());
-			session.setAttribute("newsNoDocNum", countingService.getNewsNoDocNum());
-			session.setAttribute("newsEventNum", countingService.getNewsEventNum());
-			session.setAttribute("newsDistinctEventNum", countingService.getNewsDistinctEventNum());
-			session.setAttribute("newsEntityNum", countingService.getNewsEntityNum());
-			session.setAttribute("newsEventDocNo", countingService.getNewsDocNum() - countingService.getNewsNoDocNum());
-			
-			//promed
-			session.setAttribute("promedDocNum", countingService.getPromedDocNum());
-			session.setAttribute("promedNoDocNum", countingService.getPromedNoDocNum());
-			session.setAttribute("promedEventNum", countingService.getPromedEventNum());
-			session.setAttribute("promedDistinctEventNum", countingService.getPromedDistinctEventNum());
-			session.setAttribute("promedEntityNum", countingService.getPromedEntityNum());
-			session.setAttribute("promedEventDocNo", countingService.getPromedDocNum() - countingService.getPromedNoDocNum());
-
-			
 			return "home";
 		}
+	}
+	
+	@RequestMapping(value="newsCounting.action", method=RequestMethod.GET, produces="applications/json;charset=utf-8")
+	@ResponseBody
+	public String nesCounting(HttpServletResponse resp, String text) {
+		ArrayList<Integer> result = new ArrayList<>();
+		result.add(countingService.getNewsDocNum());
+		result.add(countingService.getNewsNoDocNum());
+		result.add(countingService.getNewsDocNum()-countingService.getNewsNoDocNum());
+		result.add(countingService.getNewsEventNum());
+		result.add(countingService.getNewsDistinctEventNum());
+		result.add(countingService.getNewsEntityNum());
+		
+		Gson gson = new GsonBuilder().setDateFormat("yyyy-MM-dd").create();
+		String json = gson.toJson(result);
+		
+		resp.setContentType("application/json;charset=utf-8");
+		
+		return json;
+	}
+	
+	@RequestMapping(value="promedCounting.action", method=RequestMethod.GET, produces="applications/json;charset=utf-8")
+	@ResponseBody
+	public String promedCounting(HttpServletResponse resp, String text) {
+		ArrayList<Integer> result = new ArrayList<>();
+		result.add(countingService.getPromedDocNum());
+		result.add(countingService.getPromedNoDocNum());
+		result.add(countingService.getPromedDocNum() - countingService.getPromedNoDocNum());
+		result.add(countingService.getPromedEventNum());
+		result.add(countingService.getPromedDistinctEventNum());
+		result.add(countingService.getPromedEntityNum());
+		
+		Gson gson = new GsonBuilder().setDateFormat("yyyy-MM-dd").create();
+		String json = gson.toJson(result);
+		
+		resp.setContentType("application/json;charset=utf-8");
+		
+		return json;
 	}
 	
 }

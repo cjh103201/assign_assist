@@ -7,9 +7,6 @@
 	<title>Brat Assist Home</title>
 	<meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="description" content="GARO is a real-estate template">
-    <meta name="author" content="Kimarotec">
-    <meta name="keyword" content="html5, css, bootstrap, property, real-estate theme , bootstrap template">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
 	<!-- jQuery Version 2.1.3 -->
@@ -45,8 +42,8 @@
                 <div class="row">
                 		<ul class="nav nav-tabs" style="font-size: 23;">
                     		<li class="active"><a data-toggle="tab" href="#Total">Total</a></li>
-                    		<li><a id="newsCounting" data-toggle="tab" href="#News">News</a></li>
-                    		<li><a id="promedCounting" data-toggle="tab" href="#Promed">Promed</a></li>
+                    		<li><a id="newsCountingTab" data-toggle="tab" href="#News">News</a></li>
+                    		<li><a id="promedCountingTab" data-toggle="tab" href="#Promed">Promed</a></li>
                     </ul>
                     <div class="tab-content">
                     		<div id="Total" class="tab-pane fade in active">
@@ -109,7 +106,7 @@
 			                                    <span class="pe-7s-news-paper"></span>
 			                                </div>
 			                                <div class="chart" data-percent="5000">
-			                                    <h2 class="percent" id="newsDocNum"><fmt:formatNumber value="${ newsDocNum }" pattern="#,###"></fmt:formatNumber></h2>
+			                                    <h2 class="percent" id="newsDocNum"></h2>
 			                                    <h5>총 작업 문서</h5>
 			                                </div>
 			                            </div>
@@ -120,7 +117,7 @@
 			                                    <span class="pe-7s-junk"></span>
 			                                </div>
 			                                <div class="chart" data-percent="5000">
-			                                    <h2 class="percent"  id="noDocNo"><fmt:formatNumber value="${ newsNoDocNum }" pattern="#,###"></fmt:formatNumber> ( <fmt:formatNumber value="${ newsEventDocNo }" pattern="#,###"></fmt:formatNumber> )</h2>
+			                                    <h2 class="percent" id="newsNoDocNo"></h2>
 			                                    <h5>작업 제외 문서 (작업 대상)</h5>
 			                                </div>
 			                            </div> 
@@ -132,7 +129,7 @@
 			                                    <span class="pe-7s-light"></span>
 			                                </div>
 			                                <div class="chart" data-percent="12000">
-			                                    <h2 class="percent" id="eventNo"><fmt:formatNumber value="${ newsEventNum }" pattern="#,###"></fmt:formatNumber> ( <fmt:formatNumber value="${ newsDistinctEventNum }" pattern="#,###"></fmt:formatNumber> ) </h2>
+			                                    <h2 class="percent" id="newsEventNo"></h2>
 			                                    <h5>Event (중복 제외)</h5>
 			                                </div>
 			                            </div> 
@@ -143,7 +140,7 @@
 			                                    <span class="pe-7s-link"></span>
 			                                </div>
 			                                <div class="chart" data-percent="120">
-			                                    <h2 class="percent" id="entityNo"><fmt:formatNumber value="${ newsEntityNum }" pattern="#,###"></fmt:formatNumber></h2>
+			                                    <h2 class="percent" id="newsEntityNo"></h2>
 			                                    <h5>Entity</h5>
 			                                </div>
 			                            </div> 
@@ -160,7 +157,7 @@
 			                                    <span class="pe-7s-news-paper"></span>
 			                                </div>
 			                                <div class="chart" data-percent="5000">
-			                                    <h2 class="percent" id="docNo"><fmt:formatNumber value="${ promedDocNum }" pattern="#,###"></fmt:formatNumber></h2>
+			                                    <h2 class="percent" id="promedDocNo"></h2>
 			                                    <h5>총 작업 문서</h5>
 			                                </div>
 			                            </div>
@@ -171,7 +168,7 @@
 			                                    <span class="pe-7s-junk"></span>
 			                                </div>
 			                                <div class="chart" data-percent="5000">
-			                                    <h2 class="percent"  id="noDocNo"><fmt:formatNumber value="${ promedNoDocNum }" pattern="#,###"></fmt:formatNumber> ( <fmt:formatNumber value="${ promedEventDocNo }" pattern="#,###"></fmt:formatNumber> )</h2>
+			                                    <h2 class="percent"  id="noPromedDocNo"></h2>
 			                                    <h5>작업 제외 문서 (작업 대상)</h5>
 			                                </div>
 			                            </div> 
@@ -183,7 +180,7 @@
 			                                    <span class="pe-7s-light"></span>
 			                                </div>
 			                                <div class="chart" data-percent="12000">
-			                                    <h2 class="percent" id="eventNo"><fmt:formatNumber value="${ promedEventNum }" pattern="#,###"></fmt:formatNumber> ( <fmt:formatNumber value="${ promedDistinctEventNum }" pattern="#,###"></fmt:formatNumber> ) </h2>
+			                                    <h2 class="percent" id="promedEventNo"></h2>
 			                                    <h5>Event (중복 제외)</h5>
 			                                </div>
 			                            </div> 
@@ -194,7 +191,7 @@
 			                                    <span class="pe-7s-link"></span>
 			                                </div>
 			                                <div class="chart" data-percent="120">
-			                                    <h2 class="percent" id="entityNo"><fmt:formatNumber value="${ promedEntityNum }" pattern="#,###"></fmt:formatNumber></h2>
+			                                    <h2 class="percent" id="promedEntityNo"></h2>
 			                                    <h5>Entity</h5>
 			                                </div>
 			                            </div> 
@@ -218,5 +215,7 @@
         <script src="resources/assets/js/wow.js"></script>
         <script src="resources/assets/js/icheck.min.js"></script>
         <script src="resources/assets/js/main.js"></script>
+        
+        <script src="resources/assets/assist_js/home.js"></script>
     </body>
 </html>

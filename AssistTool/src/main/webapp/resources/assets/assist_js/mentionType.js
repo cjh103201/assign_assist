@@ -28,6 +28,9 @@ $('#mentionTypeCheck').click(function() {
 	next = $("#step option:selected").val();
 	if(next == "" || next.includes("=====")) {
 		next = "/3rd";
+	} else if(next.includes("fixed")){
+		alert("작업대상 폴더가 아닙니다.");
+		return;
 	} else {
 		next = "/" + next;
 	}

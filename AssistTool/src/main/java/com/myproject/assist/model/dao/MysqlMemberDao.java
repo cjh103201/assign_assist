@@ -44,6 +44,20 @@ public class MysqlMemberDao implements MemberDao {
 		return members;
 	}
 
+	@Override
+	public void deleteMember(String id) {
+		memberMapper.deleteMember(id);
+	}
+
+	@Override
+	public void updateUserType(String id, String userType) {
+		HashMap<String, String> params = new HashMap<>();
+		params.put("id", id);
+		params.put("userType", userType);
+		
+		memberMapper.updateMemberUserType(params);
+	}
+
 }
 
 

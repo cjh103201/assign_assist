@@ -14,4 +14,8 @@ public interface MemberDao {
 	
 	List<Member> selectMemberList();
 	
+	void deleteMember(String id);
+	
+	void updateUserType(String id, String userType);
+	
 }

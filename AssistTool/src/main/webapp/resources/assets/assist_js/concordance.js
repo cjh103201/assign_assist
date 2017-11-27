@@ -4,13 +4,15 @@ $('#textSearch').click(function() {
 		alert("검색어를 입력하세요!");
 		return;
 	}
+	$('.content').remove();
+	$('.table').append('<h2 id="ing">검색 중입니다......</h2>');
 	$.ajax({
 		url : "text.action",
 		data : { text : $('#textKeyword').val()},
 		method : "get",
 		dataType : "json",
 		success : function(data, status, xhr) {
-			$('.content').remove();
+			$('#ing').remove();
 			if(data.length != 0) {
 				for(var i=0; i<data.length; i++) {
 					$('<tr class="content"><td>'+data[i][0]+'</td><td>'+data[i][1]+'</td><td>'+data[i][2]+'</td><td><button onclick="move(this.id)" id="'+data[i][0]+'" class="move btn search-btn" type="button"><i class="fa fa-search"></i></button></td></tr>').appendTo('#contents');
@@ -31,13 +33,15 @@ $('#entitySearch').click(function() {
 		alert("유형을 선택하세요!");
 		return;
 	}
+	$('.content').remove();
+	$('.table').append('<h2 id="ing">검색 중입니다......</h2>');
 	$.ajax({
 		url : "entity.action",
 		data : { type : $('#entityType option:selected').val(), text : $('#entityKeyword').val()},
 		method : "get",
 		dataType : "json",
 		success : function(data, status, xhr) {
-			$('.content').remove();
+			$('#ing').remove();
 			if(data.length != 0) {
 				for(var i=0; i<data.length; i++) {
 					$('<tr class="content"><td>'+data[i][0]+'</td><td>'+data[i][1]+'</td><td>'+data[i][2]+'</td><td><button onclick="move(this.id)" id="'+data[i][0]+'" class="move btn search-btn" type="button"><i class="fa fa-search"></i></button></td></tr>').appendTo('#contents');
@@ -58,13 +62,15 @@ $('#eventSearch').click(function() {
 		alert("유형을 선택하세요!");
 		return;
 	}
+	$('.content').remove();
+	$('.table').append('<h2 id="ing">검색 중입니다......</h2>');
 	$.ajax({
 		url : "event.action",
 		data : {  type : $('#evnetType option:selected').val(), text : $('#eventKeyword').val()},
 		method : "get",
 		dataType : "json",
 		success : function(data, status, xhr) {
-			$('.content').remove();
+			$('#ing').remove();
 			if(data.length != 0) {
 				for(var i=0; i<data.length; i++) {
 					$('<tr class="content"><td>'+data[i][0]+'</td><td>'+data[i][1]+'</td><td>'+data[i][2]+'</td><td><button onclick="move(this.id)" id="'+data[i][0]+'" class="move btn search-btn" type="button"><i class="fa fa-search"></i></button></td></tr>').appendTo('#contents');
