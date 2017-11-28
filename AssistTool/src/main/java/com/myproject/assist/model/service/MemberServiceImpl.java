@@ -49,4 +49,9 @@ public class MemberServiceImpl implements MemberService {
 	public void changeUserType(String id, String userType) {
 		dao.updateUserType(id, userType);
 	}
+
+	@Override
+	public List<Member> getWorkerList() {
+		return dao.selectMemberWorker();
+	}
 }

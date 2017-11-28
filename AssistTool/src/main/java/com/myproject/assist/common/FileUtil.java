@@ -95,7 +95,6 @@ public class FileUtil {
 		
 		return txtFileList;
 	}
-
 	
 	/**
 	 * @Method   : readFileData

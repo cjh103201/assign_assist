@@ -17,4 +17,6 @@ public interface MemberService {
 	void deleteMember(String id);
 	
 	void changeUserType(String id, String userType);
+	
+	List<Member> getWorkerList();
 }

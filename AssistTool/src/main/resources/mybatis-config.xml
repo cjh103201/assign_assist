@@ -6,13 +6,14 @@
   <!-- 등록할 프로퍼티가 많은 경우 아래처럼 프로퍼티를 따로 등록한 후에 ${ }로 사용 가능 -->
   <properties>
   	<property name="driver" value="com.mysql.jdbc.Driver" />
-  	<property name="url" value="jdbc:mysql://localhost:3306/Assist_Tool" />
+  	<property name="url" value="jdbc:mysql://106.255.230.162:36001/assist" />
   	<property name="username" value="root" />
-    <property name="password" value="root" />
+    <property name="password" value="iirtech123" />
   </properties>
   
   <typeAliases>
   	<typeAlias type="com.myproject.assist.model.dto.Member" alias="Member" />
+  	<typeAlias type="com.myproject.assist.model.dto.Assign" alias="Assign" />
   </typeAliases>
   
   <environments default="development">
@@ -30,6 +31,8 @@
  <!-- SQL, Objects's Mapping Info -->
   <mappers>
   	 <mapper resource="com/myproject/assist/model/mapper/MemberMapper.xml"/>
+  	 <mapper resource="com/myproject/assist/model/mapper/AssignMapper.xml"/>
+  	 <mapper resource="com/myproject/assist/model/mapper/WorkMapper.xml"/>
   </mappers> 
   
 </configuration>

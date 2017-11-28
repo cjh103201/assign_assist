@@ -58,6 +58,11 @@ public class MysqlMemberDao implements MemberDao {
 		memberMapper.updateMemberUserType(params);
 	}
 
+	@Override
+	public List<Member> selectMemberWorker() {
+		return memberMapper.selectMemberWorker();
+	}
+
 }
 
 

@@ -16,5 +16,7 @@ public class FilePath {
 		//프로메드 파일 경로
 		public static final String promedPath = "/Users/rnder006/Desktop/data/감염병/02Final(ProMED)";		
 		
+		//작업 진행 경로
+		public static final String workingPath = "/Users/rnder006/Desktop/data/workingSpace";
 	}
 }

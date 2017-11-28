@@ -6,7 +6,7 @@ import java.util.List;
 import com.myproject.assist.model.dto.Member;
 
 //com.mvcdemoweb.model.mapper.MemberMapper 파일에 대응하는 인터페이스
-public interface MemberMapper {
+public interface WorkMapper {
 	
 	void insertMember(Member  member);
 	
@@ -20,5 +20,4 @@ public interface MemberMapper {
 	
 	void updateMemberUserType(HashMap<String, String> params);
 	
-	List<Member> selectMemberWorker();
 }

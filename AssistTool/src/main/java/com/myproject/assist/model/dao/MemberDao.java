@@ -18,4 +18,5 @@ public interface MemberDao {
 	
 	void updateUserType(String id, String userType);
 	
+	List<Member> selectMemberWorker();
 }

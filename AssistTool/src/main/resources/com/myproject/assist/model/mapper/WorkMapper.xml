@@ -4,7 +4,7 @@
 	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <!-- namespace는 패키지.클래스이름을 의미 -->
-<mapper namespace="com.myproject.assist.model.mapper.MemberMapper">
+<mapper namespace="com.myproject.assist.model.mapper.WorkMapper">
 	<insert id="insertMember" parameterType="Member">
 		INSERT  INTO Member
 		( ID, Password, Name, Mail)
@@ -38,9 +38,4 @@
 		USERTYPE = #{ userType }
 		WHERE ID = #{ id };
 	</update>
-	<select id="selectMemberWorker" resultType="Member">
-		SELECT ID, NAME, MAIL, USERTYPE
-		FROM MEMBER
-		WHERE DELETED = 0 and USERTYPE != 0;
-	</select>
 </mapper>

@@ -19,9 +19,9 @@
 	<bean id="dataSource"
 		class="org.apache.commons.dbcp2.BasicDataSource"
 		p:driverClassName="com.mysql.jdbc.Driver"
-		p:url="jdbc:mysql://localhost:3306/Assist_Tool"
+		p:url="jdbc:mysql://106.255.230.162:36001/assist?useUnicod=true&amp;characterEncoding=utf8"
 		p:username="root" 
-		p:password="root"  />
+		p:password="iirtech123"  />
 		
 	<!-- SqlSessionFactoryBean을 사용해서 SqlSessionFactory 객체 등록 -->
 	<bean id="sqlSessionFactory"
@@ -34,6 +34,20 @@
 		class="org.mybatis.spring.mapper.MapperFactoryBean">
 		<property name="mapperInterface" 
 			value="com.myproject.assist.model.mapper.MemberMapper" />
+		<property name="sqlSessionFactory" ref="sqlSessionFactory" />
+	</bean>
+	
+	<bean id="assignMapper"
+		class="org.mybatis.spring.mapper.MapperFactoryBean">
+		<property name="mapperInterface" 
+			value="com.myproject.assist.model.mapper.AssignMapper" />
+		<property name="sqlSessionFactory" ref="sqlSessionFactory" />
+	</bean>
+	
+	<bean id="workMapper"
+		class="org.mybatis.spring.mapper.MapperFactoryBean">
+		<property name="mapperInterface" 
+			value="com.myproject.assist.model.mapper.WorkMapper" />
 		<property name="sqlSessionFactory" ref="sqlSessionFactory" />
 	</bean>
 	
